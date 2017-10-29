@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dannis</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nomer</th>
+      <th>Text</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dannis.each do |danni| %>
+      <tr>
+        <td><%= danni.nomer %></td>
+        <td><%= danni.text %></td>
+        <td><%= link_to 'Show', danni %></td>
+        <td><%= link_to 'Edit', edit_danni_path(danni) %></td>
+        <td><%= link_to 'Destroy', danni, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Danni', new_danni_path %>
