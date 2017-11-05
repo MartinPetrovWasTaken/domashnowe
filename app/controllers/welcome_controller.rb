@@ -32,13 +32,13 @@ class WelcomeController < ApplicationController
 		if request.headers["Content-Type"] == "application/json"
 			text = params[:message]
 			id = getid()
-			value = {"url" => "https://dom-mitov-msg.herokuapp.com/messages/ + id.to_s"}
+			value = {"url" => "https://dom-mitov-msg.herokuapp.com/messages/" + id.to_s}
 			Danni.create(:id => id, :text => text)
 			render json: value
 		elsif request.headers["Content-Type"] == "text/xml"
 			text = Nokogiri::XML(request.body.read).content
 			id = getid()
-			value = {"url" => "https://dom-mitov-msg.herokuapp.com/messages/ + id.to_s"}
+			value = {"url" => "https://dom-mitov-msg.herokuapp.com/messages/" + id.to_s}
 			Danni.create(:id => id, :text => text)
 			render xml: value
 		end
